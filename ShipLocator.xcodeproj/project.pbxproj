@@ -14,6 +14,9 @@
 		56C3005A2056B99600BE42FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56C300582056B99600BE42FF /* LaunchScreen.storyboard */; };
 		56C300652056B99700BE42FF /* ShipLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C300642056B99700BE42FF /* ShipLocatorTests.swift */; };
 		56C300702056B99700BE42FF /* ShipLocatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3006F2056B99700BE42FF /* ShipLocatorUITests.swift */; };
+		56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3007D2056BA6700BE42FF /* ShipLocation.swift */; };
+		56DBE0982056C7890047E6F7 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE0972056C7890047E6F7 /* Ship.swift */; };
+		CD8FBDF532DEF3B3D6551C17 /* Pods_ShipLocator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,11 @@
 		56C3006B2056B99700BE42FF /* ShipLocatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShipLocatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C3006F2056B99700BE42FF /* ShipLocatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocatorUITests.swift; sourceTree = "<group>"; };
 		56C300712056B99700BE42FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56C3007D2056BA6700BE42FF /* ShipLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocation.swift; sourceTree = "<group>"; };
+		56DBE0972056C7890047E6F7 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		7FB94D48939B4A277CC87484 /* Pods-ShipLocator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.debug.xcconfig"; sourceTree = "<group>"; };
+		8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipLocator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA8F53A782F3B4EA0629F55D /* Pods-ShipLocator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD8FBDF532DEF3B3D6551C17 /* Pods_ShipLocator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,8 @@
 				56C300632056B99700BE42FF /* ShipLocatorTests */,
 				56C3006E2056B99700BE42FF /* ShipLocatorUITests */,
 				56C3004D2056B99600BE42FF /* Products */,
+				C8E56407CF44C3B4D2C1468C /* Pods */,
+				99C4F4932E41DBF145B4801E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +114,8 @@
 				56C300562056B99600BE42FF /* Assets.xcassets */,
 				56C300582056B99600BE42FF /* LaunchScreen.storyboard */,
 				56C3005B2056B99600BE42FF /* Info.plist */,
+				56C3007D2056BA6700BE42FF /* ShipLocation.swift */,
+				56DBE0972056C7890047E6F7 /* Ship.swift */,
 			);
 			path = ShipLocator;
 			sourceTree = "<group>";
@@ -125,6 +138,23 @@
 			path = ShipLocatorUITests;
 			sourceTree = "<group>";
 		};
+		99C4F4932E41DBF145B4801E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8E56407CF44C3B4D2C1468C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FB94D48939B4A277CC87484 /* Pods-ShipLocator.debug.xcconfig */,
+				EA8F53A782F3B4EA0629F55D /* Pods-ShipLocator.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56C300742056B99700BE42FF /* Build configuration list for PBXNativeTarget "ShipLocator" */;
 			buildPhases = (
+				98F923066C12D3E0891688F7 /* [CP] Check Pods Manifest.lock */,
 				56C300482056B99600BE42FF /* Sources */,
 				56C300492056B99600BE42FF /* Frameworks */,
 				56C3004A2056B99600BE42FF /* Resources */,
+				4EE5AAF63565A65C0FB7A2EA /* [CP] Embed Pods Frameworks */,
+				36B2D6C43364479AC853F4C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,12 +287,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36B2D6C43364479AC853F4C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4EE5AAF63565A65C0FB7A2EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftWebSocket/SwiftWebSocket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftWebSocket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98F923066C12D3E0891688F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShipLocator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		56C300482056B99600BE42FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */,
 				56C300522056B99600BE42FF /* ViewController.swift in Sources */,
+				56DBE0982056C7890047E6F7 /* Ship.swift in Sources */,
 				56C300502056B99600BE42FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +513,7 @@
 		};
 		56C300752056B99700BE42FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FB94D48939B4A277CC87484 /* Pods-ShipLocator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -439,6 +529,7 @@
 		};
 		56C300762056B99700BE42FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA8F53A782F3B4EA0629F55D /* Pods-ShipLocator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
