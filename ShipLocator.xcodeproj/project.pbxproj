@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56654996208A0D33003DA70F /* MetaDataRepository.swift */; };
+		5665499B208A14B5003DA70F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499A208A14B5003DA70F /* Constants.swift */; };
+		5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499C208A15BB003DA70F /* ShipLocationRepository.swift */; };
+		5665499F208A187E003DA70F /* ShipDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499E208A187E003DA70F /* ShipDataModel.swift */; };
 		56C300502056B99600BE42FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3004F2056B99600BE42FF /* AppDelegate.swift */; };
-		56C300522056B99600BE42FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C300512056B99600BE42FF /* ViewController.swift */; };
+		56C300522056B99600BE42FF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C300512056B99600BE42FF /* MapViewController.swift */; };
 		56C300552056B99600BE42FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56C300532056B99600BE42FF /* Main.storyboard */; };
 		56C300572056B99600BE42FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56C300562056B99600BE42FF /* Assets.xcassets */; };
 		56C3005A2056B99600BE42FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56C300582056B99600BE42FF /* LaunchScreen.storyboard */; };
@@ -16,6 +20,10 @@
 		56C300702056B99700BE42FF /* ShipLocatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3006F2056B99700BE42FF /* ShipLocatorUITests.swift */; };
 		56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3007D2056BA6700BE42FF /* ShipLocation.swift */; };
 		56DBE0982056C7890047E6F7 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE0972056C7890047E6F7 /* Ship.swift */; };
+		56F7F6AB206910FF00E2C8D4 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */; };
+		56F7F6AD2069178600E2C8D4 /* DataSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F7F6AC2069178600E2C8D4 /* DataSheet.xib */; };
+		56F7F6AF206A4B0700E2C8D4 /* DataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */; };
+		56F7F6B1206A4C7800E2C8D4 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */; };
 		CD8FBDF532DEF3B3D6551C17 /* Pods_ShipLocator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,9 +45,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		56654996208A0D33003DA70F /* MetaDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataRepository.swift; sourceTree = "<group>"; };
+		5665499A208A14B5003DA70F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5665499C208A15BB003DA70F /* ShipLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocationRepository.swift; sourceTree = "<group>"; };
+		5665499E208A187E003DA70F /* ShipDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShipDataModel.swift; sourceTree = "<group>"; };
 		56C3004C2056B99600BE42FF /* ShipLocator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShipLocator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C3004F2056B99600BE42FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56C300512056B99600BE42FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		56C300512056B99600BE42FF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		56C300542056B99600BE42FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56C300562056B99600BE42FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56C300592056B99600BE42FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +64,10 @@
 		56C300712056B99700BE42FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56C3007D2056BA6700BE42FF /* ShipLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocation.swift; sourceTree = "<group>"; };
 		56DBE0972056C7890047E6F7 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		56F7F6AC2069178600E2C8D4 /* DataSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSheet.xib; sourceTree = "<group>"; };
+		56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSheet.swift; sourceTree = "<group>"; };
+		56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7FB94D48939B4A277CC87484 /* Pods-ShipLocator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.debug.xcconfig"; sourceTree = "<group>"; };
 		8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipLocator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8F53A782F3B4EA0629F55D /* Pods-ShipLocator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.release.xcconfig"; sourceTree = "<group>"; };
@@ -83,12 +99,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56654992208A0CBA003DA70F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				56C300532056B99600BE42FF /* Main.storyboard */,
+				56C300582056B99600BE42FF /* LaunchScreen.storyboard */,
+				56F7F6AC2069178600E2C8D4 /* DataSheet.xib */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		56654993208A0CD7003DA70F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				56C300512056B99600BE42FF /* MapViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		56654994208A0CF1003DA70F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5665499E208A187E003DA70F /* ShipDataModel.swift */,
+				56C3007D2056BA6700BE42FF /* ShipLocation.swift */,
+				56DBE0972056C7890047E6F7 /* Ship.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56654995208A0D03003DA70F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				56654996208A0D33003DA70F /* MetaDataRepository.swift */,
+				5665499C208A15BB003DA70F /* ShipLocationRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		56C300432056B99600BE42FF = {
 			isa = PBXGroup;
 			children = (
+				56C3006E2056B99700BE42FF /* ShipLocatorUITests */,
 				56C3004E2056B99600BE42FF /* ShipLocator */,
 				56C300632056B99700BE42FF /* ShipLocatorTests */,
-				56C3006E2056B99700BE42FF /* ShipLocatorUITests */,
 				56C3004D2056B99600BE42FF /* Products */,
 				C8E56407CF44C3B4D2C1468C /* Pods */,
 				99C4F4932E41DBF145B4801E /* Frameworks */,
@@ -108,14 +161,17 @@
 		56C3004E2056B99600BE42FF /* ShipLocator */ = {
 			isa = PBXGroup;
 			children = (
+				56654995208A0D03003DA70F /* Repository */,
+				56654994208A0CF1003DA70F /* Model */,
+				56654993208A0CD7003DA70F /* ViewControllers */,
+				56654992208A0CBA003DA70F /* Storyboards */,
 				56C3004F2056B99600BE42FF /* AppDelegate.swift */,
-				56C300512056B99600BE42FF /* ViewController.swift */,
-				56C300532056B99600BE42FF /* Main.storyboard */,
 				56C300562056B99600BE42FF /* Assets.xcassets */,
-				56C300582056B99600BE42FF /* LaunchScreen.storyboard */,
 				56C3005B2056B99600BE42FF /* Info.plist */,
-				56C3007D2056BA6700BE42FF /* ShipLocation.swift */,
-				56DBE0972056C7890047E6F7 /* Ship.swift */,
+				56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */,
+				56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */,
+				56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */,
+				5665499A208A14B5003DA70F /* Constants.swift */,
 			);
 			path = ShipLocator;
 			sourceTree = "<group>";
@@ -266,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C3005A2056B99600BE42FF /* LaunchScreen.storyboard in Resources */,
+				56F7F6AD2069178600E2C8D4 /* DataSheet.xib in Resources */,
 				56C300572056B99600BE42FF /* Assets.xcassets in Resources */,
 				56C300552056B99600BE42FF /* Main.storyboard in Resources */,
 			);
@@ -346,10 +403,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5665499F208A187E003DA70F /* ShipDataModel.swift in Sources */,
 				56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */,
-				56C300522056B99600BE42FF /* ViewController.swift in Sources */,
+				56C300522056B99600BE42FF /* MapViewController.swift in Sources */,
+				56F7F6B1206A4C7800E2C8D4 /* NibLoadable.swift in Sources */,
 				56DBE0982056C7890047E6F7 /* Ship.swift in Sources */,
+				56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */,
+				5665499B208A14B5003DA70F /* Constants.swift in Sources */,
+				56F7F6AB206910FF00E2C8D4 /* BottomSheetViewController.swift in Sources */,
 				56C300502056B99600BE42FF /* AppDelegate.swift in Sources */,
+				5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */,
+				56F7F6AF206A4B0700E2C8D4 /* DataSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
