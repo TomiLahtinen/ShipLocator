@@ -8,6 +8,4 @@
 
 import Foundation
 
-struct ShipDetail {
-    let callsign = "Ship callsign"
-}
+typealias ShipDetail = [(key: String, value: String)]

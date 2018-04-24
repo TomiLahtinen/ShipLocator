@@ -30,7 +30,6 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         
         self.shipDataModel = ShipDataModel {
-            debugPrint("Meta data changed")
             self.tableView.reloadData()
         }
         
@@ -49,7 +48,6 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        debugPrint("Segue")
         if segue.identifier == detailSegue {
             guard let destination = segue.destination as? ShipDetailTableViewController,
                   let ship = sender as? Ship
@@ -85,7 +83,6 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
         cell!.textLabel?.text = shipData?.name
         cell!.detailTextLabel?.text = (shipData?.callSign ?? "") + " " + (shipData?.destination ?? "")
         
-        debugPrint("Celll")
         return cell!
     }
     
@@ -94,7 +91,6 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
         let keys = model?.keys.map(){ $0 }
         let shipData = model![keys![indexPath.row]]
         
-        debugPrint("Focus on ship", shipData)
         performSegue(withIdentifier: detailSegue, sender: shipData)
     }
     

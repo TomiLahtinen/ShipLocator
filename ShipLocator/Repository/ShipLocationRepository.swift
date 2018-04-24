@@ -35,10 +35,6 @@ class ShipLocationRepository {
             socket.event.message = { message in
                 if let message = message as? String {
                     if let location = try? ShipLocation(message) {
-                        if location.coordinates.latitude.isEqual(to: 0) && location.coordinates.longitude.isEqual(to: 0) {
-                            debugPrint("Tropical location for", location.data.mmsi)
-                        }
-                        debugPrint("location", location.coordinates)
                         self.locationUpdated(location)
                     }
                 }
