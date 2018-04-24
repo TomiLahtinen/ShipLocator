@@ -12,7 +12,7 @@ class ShipDataModel: LocationWebSocketHandler {
 
     let metaDataChanged: () -> ()
 
-    private var model: [Int: Ship] = [:] {
+    private var model: [Ship] = [] {
         didSet {
             self.metaDataChanged()
         }
@@ -36,11 +36,9 @@ class ShipDataModel: LocationWebSocketHandler {
         self.metadataRepository?.updateMetaData()
     }
     
-    func getModel(filteredBy: String? = nil) -> [Int: Ship] {
-        return model.filter({ (key, ship) -> Bool in
-            if let filter = filteredBy?.lowercased(),
-                !filter.isEmpty
-            {
+    func getModel(filteredBy: String? = nil) -> [Ship] {
+        return model.filter({ ship -> Bool in
+            if let filter = filteredBy?.lowercased(), !filter.isEmpty {
                 return ship.name.lowercased().contains(filter) || (ship.callSign?.lowercased().contains(filter)) ?? false
             }
             else {
@@ -50,17 +48,13 @@ class ShipDataModel: LocationWebSocketHandler {
     }
     
     func getShipMeta(mmsi: Int) -> Ship? {
-        return model[mmsi]
-    }
-    
-    public func isIceBreaker(mmsi: Int) -> Bool {
-        return model[mmsi]?.shipType == Constants.iceBreakerType
+        return model.filter() { $0.mmsi == mmsi }.first
     }
     
     // MARK:- LocationWebSocketHandler implementation
     func initWebSockets() {
         disconnectWebSockets()
-        shipLocationRepository?.initWebSockets(keys: model.keys.map { $0 })
+        shipLocationRepository?.initWebSockets(keys: model.map { $0.mmsi })
     }
     
     func connectWebSockets() {

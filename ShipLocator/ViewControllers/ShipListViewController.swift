@@ -73,23 +73,21 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "shipCellIdentifier"
         let model = shipDataModel?.getModel(filteredBy: currentFilter())
-        let keys = model?.keys.map(){ $0 }
-        let shipData = model![keys![indexPath.row]]
+        let shipData = model![indexPath.row]
 
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
         }
-        cell!.textLabel?.text = shipData?.name
-        cell!.detailTextLabel?.text = (shipData?.callSign ?? "") + " " + (shipData?.destination ?? "")
+        cell!.textLabel?.text = shipData.name
+        cell!.detailTextLabel?.text = (shipData.callSign ?? "") + " " + (shipData.destination ?? "")
         
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let model = shipDataModel?.getModel(filteredBy: currentFilter())
-        let keys = model?.keys.map(){ $0 }
-        let shipData = model![keys![indexPath.row]]
+        let shipData = model![indexPath.row]
         
         performSegue(withIdentifier: detailSegue, sender: shipData)
     }

@@ -38,10 +38,6 @@ class MapViewController: UIViewController {
         shipDataModel?.disconnectWebSockets()
     }
 
-    private func iceBreaker(_ location: ShipLocation) -> Bool {
-        return shipDataModel!.isIceBreaker(mmsi: location.data.mmsi)
-    }
-    
     func upsertAnnotation(_ location: ShipLocation) {
         if let annotation = mapView.annotations
             .filter({ anno in
