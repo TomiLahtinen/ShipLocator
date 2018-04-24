@@ -21,7 +21,8 @@ class MapViewController: UIViewController {
         self.mapView.delegate = self
         self.shipDataModel = ShipDataModel(shipLocationUpdated: { (shipLocation) in
             self.upsertAnnotation(shipLocation)
-        }) 
+        })
+        self.shipDataModel?.initWebSockets()
     }
     
     override func viewDidAppear(_ animated: Bool) {

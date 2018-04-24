@@ -10,14 +10,23 @@ import Foundation
 
 class ShipDataModel: LocationWebSocketHandler {
 
-    var model: [Int: Ship] = [:]
+    let metaDataChanged: () -> ()
+
+    var model: [Int: Ship] = [:] {
+        didSet {
+            self.metaDataChanged()
+        }
+    }
+    
     var metadataRepository: MetaDataRepository?
     var shipLocationRepository: ShipLocationRepository?
     
-    init(shipLocationUpdated: @escaping (ShipLocation) -> ()){
+    init(shipLocationUpdated: @escaping (ShipLocation) -> () = { _ in /* NOP */ },
+         metaDataChanged: @escaping () -> () = { /* NOP */ }){
+        
+        self.metaDataChanged = metaDataChanged
         self.metadataRepository = MetaDataRepository(updated: { metadata in
             self.model = metadata
-            self.initWebSockets()
         })
         
         self.shipLocationRepository = ShipLocationRepository(locationUpdated: { location in

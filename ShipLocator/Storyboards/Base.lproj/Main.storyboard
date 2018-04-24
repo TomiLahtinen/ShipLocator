@@ -55,10 +55,38 @@
             </objects>
             <point key="canvasLocation" x="-1449" y="-512"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Ship Detail Table View Controller-->
+        <scene sceneID="T2N-MU-I66">
+            <objects>
+                <tableViewController id="Tlj-jk-byT" customClass="ShipDetailTableViewController" customModule="ShipLocator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JKJ-O3-252">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="RC4-PI-Nq0">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RC4-PI-Nq0" id="QVc-j1-p4Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Tlj-jk-byT" id="WXE-Zg-YWF"/>
+                            <outlet property="delegate" destination="Tlj-jk-byT" id="JR0-wL-I4R"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUa-Us-Nmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197" y="-720"/>
+        </scene>
+        <!--Ship List View Contoller-->
         <scene sceneID="6NY-Ab-sxz">
             <objects>
-                <tableViewController id="Qgp-Ju-pKu" sceneMemberID="viewController">
+                <tableViewController id="Qgp-Ju-pKu" customClass="ShipListViewContoller" customModule="ShipLocator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gKz-ML-8hW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,6 +99,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Tlj-jk-byT" kind="show" identifier="shipInformationSeque" id="tam-2d-h6L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -79,6 +110,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4m0-cb-tei"/>
+                    <connections>
+                        <outlet property="tableView" destination="gKz-ML-8hW" id="aIp-TP-F0q"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xs-i5-Slk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

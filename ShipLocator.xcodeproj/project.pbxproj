@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5609CB43208E13150016F35B /* ShipListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB42208E13150016F35B /* ShipListViewController.swift */; };
+		5609CB45208F0DBB0016F35B /* ShipDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB44208F0DBB0016F35B /* ShipDetailTableViewController.swift */; };
 		56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56654996208A0D33003DA70F /* MetaDataRepository.swift */; };
 		5665499B208A14B5003DA70F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499A208A14B5003DA70F /* Constants.swift */; };
 		5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499C208A15BB003DA70F /* ShipLocationRepository.swift */; };
@@ -20,10 +22,6 @@
 		56C300702056B99700BE42FF /* ShipLocatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3006F2056B99700BE42FF /* ShipLocatorUITests.swift */; };
 		56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C3007D2056BA6700BE42FF /* ShipLocation.swift */; };
 		56DBE0982056C7890047E6F7 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DBE0972056C7890047E6F7 /* Ship.swift */; };
-		56F7F6AB206910FF00E2C8D4 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */; };
-		56F7F6AD2069178600E2C8D4 /* DataSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F7F6AC2069178600E2C8D4 /* DataSheet.xib */; };
-		56F7F6AF206A4B0700E2C8D4 /* DataSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */; };
-		56F7F6B1206A4C7800E2C8D4 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */; };
 		CD8FBDF532DEF3B3D6551C17 /* Pods_ShipLocator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5609CB42208E13150016F35B /* ShipListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipListViewController.swift; sourceTree = "<group>"; };
+		5609CB44208F0DBB0016F35B /* ShipDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipDetailTableViewController.swift; sourceTree = "<group>"; };
 		56654996208A0D33003DA70F /* MetaDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataRepository.swift; sourceTree = "<group>"; };
 		5665499A208A14B5003DA70F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5665499C208A15BB003DA70F /* ShipLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocationRepository.swift; sourceTree = "<group>"; };
@@ -64,10 +64,6 @@
 		56C300712056B99700BE42FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56C3007D2056BA6700BE42FF /* ShipLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocation.swift; sourceTree = "<group>"; };
 		56DBE0972056C7890047E6F7 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
-		56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
-		56F7F6AC2069178600E2C8D4 /* DataSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataSheet.xib; sourceTree = "<group>"; };
-		56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSheet.swift; sourceTree = "<group>"; };
-		56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		7FB94D48939B4A277CC87484 /* Pods-ShipLocator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.debug.xcconfig"; sourceTree = "<group>"; };
 		8F188F989ADFBCAE69F03DFE /* Pods_ShipLocator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShipLocator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA8F53A782F3B4EA0629F55D /* Pods-ShipLocator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShipLocator.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShipLocator/Pods-ShipLocator.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,7 +100,6 @@
 			children = (
 				56C300532056B99600BE42FF /* Main.storyboard */,
 				56C300582056B99600BE42FF /* LaunchScreen.storyboard */,
-				56F7F6AC2069178600E2C8D4 /* DataSheet.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -113,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				56C300512056B99600BE42FF /* MapViewController.swift */,
+				5609CB42208E13150016F35B /* ShipListViewController.swift */,
+				5609CB44208F0DBB0016F35B /* ShipDetailTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -168,9 +165,6 @@
 				56C3004F2056B99600BE42FF /* AppDelegate.swift */,
 				56C300562056B99600BE42FF /* Assets.xcassets */,
 				56C3005B2056B99600BE42FF /* Info.plist */,
-				56F7F6AA206910FF00E2C8D4 /* BottomSheetViewController.swift */,
-				56F7F6AE206A4B0700E2C8D4 /* DataSheet.swift */,
-				56F7F6B0206A4C7800E2C8D4 /* NibLoadable.swift */,
 				5665499A208A14B5003DA70F /* Constants.swift */,
 			);
 			path = ShipLocator;
@@ -322,7 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56C3005A2056B99600BE42FF /* LaunchScreen.storyboard in Resources */,
-				56F7F6AD2069178600E2C8D4 /* DataSheet.xib in Resources */,
 				56C300572056B99600BE42FF /* Assets.xcassets in Resources */,
 				56C300552056B99600BE42FF /* Main.storyboard in Resources */,
 			);
@@ -406,14 +399,13 @@
 				5665499F208A187E003DA70F /* ShipDataModel.swift in Sources */,
 				56C3007E2056BA6700BE42FF /* ShipLocation.swift in Sources */,
 				56C300522056B99600BE42FF /* MapViewController.swift in Sources */,
-				56F7F6B1206A4C7800E2C8D4 /* NibLoadable.swift in Sources */,
 				56DBE0982056C7890047E6F7 /* Ship.swift in Sources */,
 				56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */,
 				5665499B208A14B5003DA70F /* Constants.swift in Sources */,
-				56F7F6AB206910FF00E2C8D4 /* BottomSheetViewController.swift in Sources */,
 				56C300502056B99600BE42FF /* AppDelegate.swift in Sources */,
+				5609CB43208E13150016F35B /* ShipListViewController.swift in Sources */,
 				5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */,
-				56F7F6AF206A4B0700E2C8D4 /* DataSheet.swift in Sources */,
+				5609CB45208F0DBB0016F35B /* ShipDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
