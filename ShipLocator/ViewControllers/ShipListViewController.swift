@@ -12,6 +12,7 @@ import UIKit
 class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private let detailSegue = "shipInformationSeque"
+    private let searchController = UISearchController(searchResultsController: nil)
     
     private var mapViewController: MapViewController? {
         return navigationController?.parent?.childViewControllers
@@ -32,6 +33,14 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
             debugPrint("Meta data changed")
             self.tableView.reloadData()
         }
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Ships"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        self.title = "Ships"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +59,6 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
             }
             destination.ship = ship
             self.mapViewController?.zoomToSingleShip(mmsi: ship.mmsi)
-            debugPrint("Here we go!!", self.mapViewController)
         }
     }
     
@@ -61,13 +69,15 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.shipDataModel?.model.count ?? 0
+        return self.shipDataModel?.getModel(filteredBy: currentFilter()).count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "shipCellIdentifier"
-        let keys = (shipDataModel?.model.keys.map(){ $0 })!
-        let shipData = shipDataModel?.model[keys[indexPath.row]]
+        let model = shipDataModel?.getModel(filteredBy: currentFilter())
+        let keys = model?.keys.map(){ $0 }
+        let shipData = model![keys![indexPath.row]]
+
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
@@ -80,9 +90,21 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let keys = (shipDataModel?.model.keys.map(){ $0 })!
-        let shipData = shipDataModel?.model[keys[indexPath.row]]
+        let model = shipDataModel?.getModel(filteredBy: currentFilter())
+        let keys = model?.keys.map(){ $0 }
+        let shipData = model![keys![indexPath.row]]
+        
         debugPrint("Focus on ship", shipData)
         performSegue(withIdentifier: detailSegue, sender: shipData)
+    }
+    
+    private func currentFilter() -> String? {
+        return searchController.searchBar.text
+    }
+}
+
+extension ShipListViewContoller: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        tableView.reloadData()
     }
 }

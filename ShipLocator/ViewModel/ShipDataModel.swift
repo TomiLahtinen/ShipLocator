@@ -12,7 +12,7 @@ class ShipDataModel: LocationWebSocketHandler {
 
     let metaDataChanged: () -> ()
 
-    var model: [Int: Ship] = [:] {
+    private var model: [Int: Ship] = [:] {
         didSet {
             self.metaDataChanged()
         }
@@ -34,6 +34,19 @@ class ShipDataModel: LocationWebSocketHandler {
         })
         
         self.metadataRepository?.updateMetaData()
+    }
+    
+    func getModel(filteredBy: String? = nil) -> [Int: Ship] {
+        return model.filter({ (key, ship) -> Bool in
+            if let filter = filteredBy?.lowercased(),
+                !filter.isEmpty
+            {
+                return ship.name.lowercased().contains(filter) || (ship.callSign?.lowercased().contains(filter)) ?? false
+            }
+            else {
+                return true
+            }
+        })
     }
     
     func getShipMeta(mmsi: Int) -> Ship? {

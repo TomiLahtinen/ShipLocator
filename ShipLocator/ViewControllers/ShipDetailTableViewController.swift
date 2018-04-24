@@ -17,6 +17,8 @@ class ShipDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         populateShipInfo()
+        navigationItem.largeTitleDisplayMode = .never
+        self.title = ship?.name
     }
     
     private func populateShipInfo() {
