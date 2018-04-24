@@ -29,20 +29,22 @@ class ShipLocationRepository {
         keys.forEach({ (key) in
             let socket = WebSocket("\(Constants.socketBase)\(key)")
             socket.event.open = {
-                debugPrint("Connected for mmsi \(key)")
                 self.sockets?.append(socket)
             }
             
             socket.event.message = { message in
                 if let message = message as? String {
                     if let location = try? ShipLocation(message) {
+                        if location.coordinates.latitude.isEqual(to: 0) && location.coordinates.longitude.isEqual(to: 0) {
+                            debugPrint("Tropical location for", location.data.mmsi)
+                        }
+                        debugPrint("location", location.coordinates)
                         self.locationUpdated(location)
                     }
                 }
             }
             
             socket.event.close = { code, reason, clean in
-                debugPrint("Closed socket of \(key)", code, reason, clean)
                 if let index = self.sockets?.index(of: socket) {
                     self.sockets?.remove(at: index)
                 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5609CB43208E13150016F35B /* ShipListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB42208E13150016F35B /* ShipListViewController.swift */; };
 		5609CB45208F0DBB0016F35B /* ShipDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB44208F0DBB0016F35B /* ShipDetailTableViewController.swift */; };
+		5609CB47208F186A0016F35B /* ShipDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB46208F186A0016F35B /* ShipDetailModel.swift */; };
+		5609CB49208F18D70016F35B /* ShipDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5609CB48208F18D70016F35B /* ShipDetail.swift */; };
 		56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56654996208A0D33003DA70F /* MetaDataRepository.swift */; };
 		5665499B208A14B5003DA70F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499A208A14B5003DA70F /* Constants.swift */; };
 		5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5665499C208A15BB003DA70F /* ShipLocationRepository.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		5609CB42208E13150016F35B /* ShipListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipListViewController.swift; sourceTree = "<group>"; };
 		5609CB44208F0DBB0016F35B /* ShipDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipDetailTableViewController.swift; sourceTree = "<group>"; };
+		5609CB46208F186A0016F35B /* ShipDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipDetailModel.swift; sourceTree = "<group>"; };
+		5609CB48208F18D70016F35B /* ShipDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipDetail.swift; sourceTree = "<group>"; };
 		56654996208A0D33003DA70F /* MetaDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataRepository.swift; sourceTree = "<group>"; };
 		5665499A208A14B5003DA70F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5665499C208A15BB003DA70F /* ShipLocationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShipLocationRepository.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5609CB4A208F18DE0016F35B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5609CB46208F186A0016F35B /* ShipDetailModel.swift */,
+				5665499E208A187E003DA70F /* ShipDataModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		56654992208A0CBA003DA70F /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,9 +130,9 @@
 		56654994208A0CF1003DA70F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5665499E208A187E003DA70F /* ShipDataModel.swift */,
 				56C3007D2056BA6700BE42FF /* ShipLocation.swift */,
 				56DBE0972056C7890047E6F7 /* Ship.swift */,
+				5609CB48208F18D70016F35B /* ShipDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +171,7 @@
 		56C3004E2056B99600BE42FF /* ShipLocator */ = {
 			isa = PBXGroup;
 			children = (
+				5609CB4A208F18DE0016F35B /* ViewModel */,
 				56654995208A0D03003DA70F /* Repository */,
 				56654994208A0CF1003DA70F /* Model */,
 				56654993208A0CD7003DA70F /* ViewControllers */,
@@ -402,9 +416,11 @@
 				56DBE0982056C7890047E6F7 /* Ship.swift in Sources */,
 				56654997208A0D33003DA70F /* MetaDataRepository.swift in Sources */,
 				5665499B208A14B5003DA70F /* Constants.swift in Sources */,
+				5609CB47208F186A0016F35B /* ShipDetailModel.swift in Sources */,
 				56C300502056B99600BE42FF /* AppDelegate.swift in Sources */,
 				5609CB43208E13150016F35B /* ShipListViewController.swift in Sources */,
 				5665499D208A15BB003DA70F /* ShipLocationRepository.swift in Sources */,
+				5609CB49208F18D70016F35B /* ShipDetail.swift in Sources */,
 				5609CB45208F0DBB0016F35B /* ShipDetailTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

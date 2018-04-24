@@ -11,8 +11,15 @@ import UIKit
 
 class ShipDetailTableViewController: UITableViewController {
     
+    var ship: Ship?
+    var shipDetailModel: ShipDetailModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        populateShipInfo()
     }
     
+    private func populateShipInfo() {
+        
+    }
 }

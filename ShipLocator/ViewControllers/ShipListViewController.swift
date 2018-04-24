@@ -13,6 +13,13 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
     
     private let detailSegue = "shipInformationSeque"
     
+    private var mapViewController: MapViewController? {
+        return navigationController?.parent?.childViewControllers
+            .filter() { $0 is MapViewController }
+            .map() { $0 as! MapViewController }
+            .first
+    }
+    
     @IBOutlet var tableView: UITableView!
     var shipDataModel: ShipDataModel?
     
@@ -27,13 +34,23 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.mapViewController?.zoomToAllShips()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        debugPrint("Segue")
         if segue.identifier == detailSegue {
-            guard let destination = segue.destination as? ShipDetailTableViewController else {
-                debugPrint("Something wrong in navigation")
+            guard let destination = segue.destination as? ShipDetailTableViewController,
+                  let ship = sender as? Ship
+            else {
+                debugPrint("Something wrong in navigation or sender data", segue, sender ?? "")
                 return
             }
-            debugPrint("Here we go!!")
+            destination.ship = ship
+            self.mapViewController?.zoomToSingleShip(mmsi: ship.mmsi)
+            debugPrint("Here we go!!", self.mapViewController)
         }
     }
     
@@ -55,8 +72,8 @@ class ShipListViewContoller: UIViewController, UITableViewDelegate, UITableViewD
         if cell == nil {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: identifier)
         }
-        cell!.textLabel?.text = shipData?.callSign
-        cell!.detailTextLabel?.text = shipData?.destination
+        cell!.textLabel?.text = shipData?.name
+        cell!.detailTextLabel?.text = (shipData?.callSign ?? "") + " " + (shipData?.destination ?? "")
         
         debugPrint("Celll")
         return cell!

@@ -30,14 +30,6 @@ class MapViewController: UIViewController {
         shipDataModel?.connectWebSockets()
     }
     
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        debugPrint("traitCollectionDidChange")
-        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass {
-            debugPrint("Horizontal class changed from", previousTraitCollection?.horizontalSizeClass, "to", traitCollection.horizontalSizeClass)
-        }
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -58,8 +50,6 @@ class MapViewController: UIViewController {
             }).first {
                 DispatchQueue.main.async {
                     let annotation = annotation as! MMSIPointAnnotation
-                    let distance = self.countDistance(annotation.coordinate, location.coordinates)
-                    debugPrint("update coordinates of", String(describing: annotation.title), " by ", distance)
                     annotation.coordinate = location.coordinates
                     
                 }
@@ -69,6 +59,7 @@ class MapViewController: UIViewController {
             let ship = shipDataModel?.getShipMeta(mmsi: location.data.mmsi)
             annotation.title = ship?.name ?? "\(location.data.mmsi)"
             annotation.subtitle = ship?.destination ?? ""
+            annotation.coordinate = location.coordinates
             self.mapView.addAnnotation(annotation)
         }
     }
@@ -77,6 +68,20 @@ class MapViewController: UIViewController {
         let point = MKMapPointForCoordinate(from)
         let point2 = MKMapPointForCoordinate(to)
         return MKMetersBetweenMapPoints(point, point2)
+    }
+    
+    func zoomToSingleShip(mmsi: Int) {
+        if let annotation = mapView.annotations
+            .filter({ (annotation) -> Bool in
+                return annotation is MMSIPointAnnotation && (annotation as! MMSIPointAnnotation).mmsi == mmsi
+            })
+            .first {
+            mapView.showAnnotations([annotation], animated: true)
+        }
+    }
+    
+    func zoomToAllShips() {
+        mapView.showAnnotations(mapView.annotations, animated: true)
     }
 }
 
