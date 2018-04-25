@@ -17,6 +17,7 @@ class ShipLocation: NSObject, Codable  {
     init(type: String, data: ShipLocationData) {
         self.type = type
         self.data = data
+        super.init()
     }
     
     override var debugDescription: String {
@@ -28,7 +29,7 @@ class ShipLocation: NSObject, Codable  {
     }
 }
 
-class ShipLocationData: Codable {
+class ShipLocationData: NSObject, Codable {
     let mmsi: Int
     let type: String
     let geometry: Geometry
@@ -46,10 +47,11 @@ class ShipLocationData: Codable {
         self.type = type
         self.geometry = geometry
         self.properties = properties
+        super.init()
     }
 }
 
-class Geometry: Codable {
+class Geometry: NSObject, Codable {
     let type: String
     let coordinates: [Double]
     
@@ -61,10 +63,11 @@ class Geometry: Codable {
     init(type: String, coordinates: [Double]) {
         self.type = type
         self.coordinates = coordinates
+        super.init()
     }
 }
 
-class Properties: Codable {
+class Properties: NSObject, Codable {
     let sog: Int
     let cog: Double
     let navStat: Int
@@ -97,6 +100,7 @@ class Properties: Codable {
         self.heading = heading
         self.timestamp = timestamp
         self.timestampExternal = timestampExternal
+        super.init()
     }
 }
 

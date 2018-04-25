@@ -15,14 +15,23 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     var shipDataModel: ShipDataModel?
+    var followMmsi: Int?
+    
+    private let overlayUrl = "https://julkinen.liikennevirasto.fi/rasteripalvelu/service/wmts"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
         self.shipDataModel = ShipDataModel(shipLocationUpdated: { (shipLocation) in
             self.upsertAnnotation(shipLocation)
+            if shipLocation.data.mmsi == self.followMmsi {
+                self.mapView.centerCoordinate = shipLocation.coordinates
+            }
         })
         self.shipDataModel?.initWebSockets()
+        
+        var overlay = MKTileOverlay(urlTemplate: overlayUrl)
+        self.mapView.add(overlay)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,7 +56,6 @@ class MapViewController: UIViewController {
                 DispatchQueue.main.async {
                     let annotation = annotation as! MMSIPointAnnotation
                     annotation.coordinate = location.coordinates
-                    
                 }
             }
         else {
@@ -73,11 +81,13 @@ class MapViewController: UIViewController {
             })
             .first {
             mapView.showAnnotations([annotation], animated: true)
+            followMmsi = mmsi
         }
     }
     
     func zoomToAllShips() {
         mapView.showAnnotations(mapView.annotations, animated: true)
+        followMmsi = nil
     }
 }
 

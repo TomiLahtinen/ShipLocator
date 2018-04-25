@@ -36,6 +36,7 @@ class ShipLocationRepository {
                 if let message = message as? String {
                     if let location = try? ShipLocation(message) {
                         self.locationUpdated(location)
+                        self.notify(location)
                     }
                 }
             }
@@ -56,4 +57,9 @@ class ShipLocationRepository {
         sockets?.forEach() { socket in socket.close() }
     }
     
+    private func notify(_ location: ShipLocation) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constants.shipLocationNotifications),
+                                        object: self,
+                                        userInfo: [Constants.shipLocationNotifications: location])
+    }
 }

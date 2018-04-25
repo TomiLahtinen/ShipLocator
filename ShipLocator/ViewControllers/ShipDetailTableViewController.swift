@@ -15,6 +15,10 @@ class ShipDetailTableViewController: UITableViewController {
     var ship: Ship?
     var shipDetailModel: ShipDetailModel?
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
@@ -23,7 +27,26 @@ class ShipDetailTableViewController: UITableViewController {
         shipDetailModel = ShipDetailModelImpl() { details in
             self.tableView.reloadData()
         }
-        shipDetailModel?.fetchDetailsFor(ship: ship)
+        shipDetailModel?.fetchDetailsFor(mmsi: (ship?.mmsi)!, withLocation: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(ShipDetailTableViewController.shipLocationChanged), name: NSNotification.Name(rawValue: Constants.shipLocationNotifications), object: nil)
+    }
+    
+    @objc private func shipLocationChanged(notification: Notification) {
+        guard let location = notification.userInfo![Constants.shipLocationNotifications] as? ShipLocation else {
+            debugPrint("invalid payload in", notification.userInfo)
+            return
+        }
+        if location.data.mmsi == ship?.mmsi {
+            debugPrint("Received new location for", String(describing: ship))
+            shipDetailModel?.fetchDetailsFor(mmsi: (ship?.mmsi)!, withLocation: location)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

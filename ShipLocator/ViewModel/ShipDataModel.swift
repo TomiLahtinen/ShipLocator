@@ -18,6 +18,8 @@ class ShipDataModel: LocationWebSocketHandler {
         }
     }
     
+    public static var instance: ShipDataModel?
+    
     var metadataRepository: MetaDataRepository?
     var shipLocationRepository: ShipLocationRepository?
     
@@ -34,16 +36,20 @@ class ShipDataModel: LocationWebSocketHandler {
         })
         
         self.metadataRepository?.updateMetaData()
+        ShipDataModel.instance = self
     }
     
     func getModel(filteredBy: String? = nil) -> [Ship] {
         return model.filter({ ship -> Bool in
             if let filter = filteredBy?.lowercased(), !filter.isEmpty {
-                return ship.name.lowercased().contains(filter) || (ship.callSign?.lowercased().contains(filter)) ?? false
+                return String(ship.mmsi).contains(filter) || ship.name.lowercased().contains(filter) || (ship.callSign?.lowercased().contains(filter)) ?? false
             }
             else {
                 return true
             }
+        })
+        .sorted(by: { (ship1, ship2) -> Bool in
+            ship1.name.compare(ship2.name) == .orderedAscending
         })
     }
     

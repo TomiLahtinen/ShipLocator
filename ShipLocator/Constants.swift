@@ -10,5 +10,8 @@ import Foundation
 
 enum Constants {
     public static let socketBase = "ws://meri.digitraffic.fi/api/v1/plain-websockets/locations/"
+    public static let vesselMetaEndPoint = "https://meri.digitraffic.fi/api/v1/metadata/vessels"
     public static let iceBreakerType = 90
+    
+    public static let shipLocationNotifications = "SHIP_LOCATION_NOTIFICATIONS"
 }

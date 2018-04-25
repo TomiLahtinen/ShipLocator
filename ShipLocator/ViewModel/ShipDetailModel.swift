@@ -10,7 +10,7 @@ import Foundation
 
 protocol ShipDetailModel {
     var shipDetail: ShipDetail? { get }
-    func fetchDetailsFor(ship: Ship?)
+    func fetchDetailsFor(mmsi: Int, withLocation: ShipLocation?)
 }
 
 class ShipDetailModelImpl: ShipDetailModel {
@@ -28,17 +28,24 @@ class ShipDetailModelImpl: ShipDetailModel {
         self.updated = updated
     }
     
-    func fetchDetailsFor(ship: Ship?) {
+    func fetchDetailsFor(mmsi: Int, withLocation: ShipLocation? = nil) {
+        guard let model = ShipDataModel.instance,
+              let ship = model.getShipMeta(mmsi: mmsi)
+        else {
+            debugPrint("No meta data model available")
+            return
+        }
+        
         self.shipDetail = [
-            ("Latitude", "0.00"),
-            ("Longitude", "0.00"),
-            ("Callsign", ship?.callSign ?? ""),
-            ("Destination", ship?.destination ?? ""),
-            ("Type", "\(String(describing: ship?.shipType))"),
-            ("Draught", "\(String(describing: ship?.draught))"),
-            ("IMO", "\(String(describing: ship?.imo))"),
-            ("MMSI", "\(String(describing: ship?.mmsi))"),
-            ("ETA", "\(String(describing: ship?.eta))")
+            ("Latitude", String(format: "%.4f", withLocation?.coordinates.latitude ?? 0)),
+            ("Longitude", String(format: "%.4f", withLocation?.coordinates.longitude ?? 0)),
+            ("Callsign", ship.callSign ?? ""),
+            ("Destination", ship.destination ?? ""),
+            ("Type", String(ship.shipType)),
+            ("Draught", String(ship.draught)),
+            ("IMO", String(ship.imo)),
+            ("MMSI", String(ship.mmsi)),
+            ("ETA", String(ship.eta))
         ]
     }
 }

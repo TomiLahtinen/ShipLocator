@@ -10,9 +10,6 @@ import Foundation
 
 class MetaDataRepository {
     
-    private let iceBreakerType = 90
-    private let vesselMetaEndPoint = "https://meri.digitraffic.fi/api/v1/metadata/vessels"
-    
     private let dataUpdated: ([Ship]) -> ()
     
     init(updated: @escaping ([Ship]) -> ()) {
@@ -21,10 +18,10 @@ class MetaDataRepository {
     }
     
     private func initMetadataModel() {
-        if let ships = try? Ships(fromURL: URL(string: vesselMetaEndPoint)!) {
+        if let ships = try? Ships(fromURL: URL(string: Constants.vesselMetaEndPoint)!) {
             let metadataModel = ships
                 .filter() { ship -> Bool in
-                    return ship.shipType == iceBreakerType
+                    return ship.shipType == Constants.iceBreakerType
             }
             dataUpdated(metadataModel)
         }
