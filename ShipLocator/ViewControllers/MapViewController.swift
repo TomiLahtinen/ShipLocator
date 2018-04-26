@@ -7,21 +7,27 @@
 //
 
 import UIKit
-
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
     var shipDataModel: ShipDataModel?
     var followMmsi: Int?
     
-    private let overlayUrl = "https://julkinen.liikennevirasto.fi/rasteripalvelu/service/wmts"
+    private let template = "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+    private var tileRenderer: MKOverlayRenderer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let overlay = MKTileOverlay(urlTemplate: template)
+        overlay.canReplaceMapContent = true
+        mapView.add(overlay, level: .aboveLabels)
+        tileRenderer = MKTileOverlayRenderer(overlay: overlay)
         self.mapView.delegate = self
+        
         self.shipDataModel = ShipDataModel(shipLocationUpdated: { (shipLocation) in
             self.upsertAnnotation(shipLocation)
             if shipLocation.data.mmsi == self.followMmsi {
@@ -30,8 +36,6 @@ class MapViewController: UIViewController {
         })
         self.shipDataModel?.initWebSockets()
         
-        var overlay = MKTileOverlay(urlTemplate: overlayUrl)
-        self.mapView.add(overlay)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -89,9 +93,18 @@ class MapViewController: UIViewController {
         mapView.showAnnotations(mapView.annotations, animated: true)
         followMmsi = nil
     }
+    
+    
 }
 
-extension MapViewController: MKMapViewDelegate {}
+//MARK:- MapViewDelegate
+extension MapViewController {
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return tileRenderer!
+    }
+    
+}
 
 class MMSIPointAnnotation: MKPointAnnotation {
     

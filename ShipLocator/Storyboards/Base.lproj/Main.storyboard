@@ -19,15 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-5b-xam">
-                                <rect key="frame" x="0.0" y="10" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eWa-5b-xam" firstAttribute="height" secondItem="P1v-rv-7Gd" secondAttribute="height" id="Hqx-nA-AAY"/>
-                            <constraint firstItem="eWa-5b-xam" firstAttribute="width" secondItem="P1v-rv-7Gd" secondAttribute="width" id="T7I-4c-byn"/>
-                            <constraint firstItem="eWa-5b-xam" firstAttribute="centerX" secondItem="W28-uv-RKb" secondAttribute="centerX" id="bIq-wy-Loa"/>
-                            <constraint firstItem="eWa-5b-xam" firstAttribute="centerY" secondItem="W28-uv-RKb" secondAttribute="centerY" id="mU4-Od-cpB"/>
+                            <constraint firstItem="eWa-5b-xam" firstAttribute="trailing" secondItem="W28-uv-RKb" secondAttribute="trailing" id="N6d-Hw-Ijn"/>
+                            <constraint firstItem="eWa-5b-xam" firstAttribute="top" secondItem="W28-uv-RKb" secondAttribute="top" id="ehj-fZ-DrX"/>
+                            <constraint firstItem="eWa-5b-xam" firstAttribute="leading" secondItem="W28-uv-RKb" secondAttribute="leading" id="gqY-op-cpJ"/>
+                            <constraint firstItem="eWa-5b-xam" firstAttribute="bottom" secondItem="W28-uv-RKb" secondAttribute="bottom" id="mvS-se-5ei"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W28-uv-RKb"/>
                     </view>
